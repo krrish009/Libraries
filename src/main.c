@@ -9,13 +9,26 @@ void print_array(int arr[], int size) {
 }
 
 int main() {
-    int choice;
-    int arr[] = {64, 34, 25, 12, 22, 11, 90, 38, 27, 43, 3, 9, 82, 10};
-    int n = sizeof(arr) / sizeof(arr[0]);
+    int choice, n;
 
-    printf("Original array:\n");
+    printf("Enter the number of elements: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid array size!\n");
+        return 1;
+    }
+
+    int arr[n];
+
+    printf("Enter %d numbers:\n", n);
+    for (int i = 0; i < n; i++) {
+        printf("Element [%d]: ", i);
+        scanf("%d", &arr[i]);
+    }
+
+    printf("\nOriginal array entered:\n");
     print_array(arr, n);
 
+    // 3. Choose the sorting algorithm
     printf("\nChoose a sorting algorithm:\n");
     printf("1. Bubble Sort\n");
     printf("2. Merge Sort\n");
