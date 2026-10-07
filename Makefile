@@ -1,8 +1,8 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -Iinclude
+CFLAGS = -Wall -Wextra -std=c99 -Iinclude/sorting -Iinclude/searching
 
 # Automatically gathers all .c files in the src folder
-SRC = $(wildcard src/*.c)
+SRC = src/main.c $(wildcard src/sorting/*.c) $(wildcard src/searching/*.c)
 OBJ = $(SRC:.c=.o)
 TARGET = program
 
@@ -15,4 +15,5 @@ $(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f src/*.o $(TARGET)
+	rm -f src/*.o src/sorting/*.o src/searching/*.o $(TARGET)
+

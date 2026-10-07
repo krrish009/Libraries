@@ -1,4 +1,5 @@
-#include "../include/sorting.h"
+#include "sorting.h"
+
 
 void merge(int arr[], int l, int m, int r) {
     int i, j, k;

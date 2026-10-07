@@ -1,4 +1,4 @@
-#include "../include/sorting.h"
+#include "sorting.h"
 
 void bubble_sort(int arr[], int n) {
     int i, j, temp;
