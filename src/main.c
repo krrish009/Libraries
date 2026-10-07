@@ -19,7 +19,8 @@ int main() {
     printf("\nChoose a sorting algorithm:\n");
     printf("1. Bubble Sort\n");
     printf("2. Merge Sort\n");
-    printf("Enter your choice (1-2): ");
+    printf("3. Insertion Sort\n");
+    printf("Enter your choice (1-3): ");
     scanf("%d", &choice);
 
     printf("\nRunning your selected algorithm...\n");
@@ -33,8 +34,12 @@ int main() {
             merge_sort(arr, 0, n - 1);
             printf("Sorted array using Merge Sort:\n");
             break;
+        case 3:
+            insertion_sort(arr, n);
+            printf("Sorted array using Insertion Sort:\n");
+            break;
         default:
-            printf("Invalid choice! Please select 1 or 2.\n");
+            printf("Invalid choice! Please select 1, 2, or 3.\n");
             return 1;
     }
 
