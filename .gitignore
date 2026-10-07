@@ -3,10 +3,4 @@
 *.obj
 *.out
 *.exe
-
-# IDE folders
-.vscode/
-.vs/
-
-# OS files
-.DS_Store
+program
