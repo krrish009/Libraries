@@ -33,7 +33,8 @@ int main() {
     printf("2. Merge Sort\n");
     printf("3. Insertion Sort\n");
     printf("4. Quick Sort\n");
-    printf("Enter your choice (1-4): ");
+    printf("5. Heap Sort\n");
+    printf("Enter your choice (1-5): ");
     scanf("%d", &choice);
 
     printf("\nRunning your selected algorithm...\n");
@@ -55,8 +56,12 @@ int main() {
             quick_sort(arr, 0, n - 1);
             printf("Sorted array using Quick Sort:\n");
             break;
+        case 5:
+            heap_sort(arr, n);
+            printf("Sorted array using Heap Sort:\n");
+            break;
         default:
-            printf("Invalid choice! Please select 1, 2, 3, or 4.\n");
+            printf("Invalid choice! Please select 1-5.\n");
             return 1;
     }
 
