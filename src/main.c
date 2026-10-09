@@ -36,19 +36,51 @@ int main() {
 
     if (main_choice == 1) {
         printf("\nChoose a sorting algorithm:\n");
-        printf("1. Bubble Sort\n2. Merge Sort\n3. Insertion Sort\n4. Quick Sort\n5. Heap Sort\n");
-        printf("Enter choice (1-5): ");
+        printf("1. Bubble Sort\n");
+        printf("2. Merge Sort\n");
+        printf("3. Insertion Sort\n");
+        printf("4. Quick Sort\n");
+        printf("5. Heap Sort\n");
+        printf("6. Smart Sort (Auto-Analyzer)\n");
+        printf("Enter choice (1-6): ");
         scanf("%d", &algo_choice);
 
         switch(algo_choice) {
-            case 1: bubble_sort(arr, n); printf("Sorted using Bubble Sort:\n"); break;
-            case 2: merge_sort(arr, 0, n - 1); printf("Sorted using Merge Sort:\n"); break;
-            case 3: insertion_sort(arr, n); printf("Sorted using Insertion Sort:\n"); break;
-            case 4: quick_sort(arr, 0, n - 1); printf("Sorted using Quick Sort:\n"); break;
-            case 5: heap_sort(arr, n); printf("Sorted using Heap Sort:\n"); break;
-            default: printf("Invalid sorting choice!\n"); return 1;
+            case 1: 
+                bubble_sort(arr, n); 
+                printf("\nSorted using Bubble Sort:\n"); 
+                break;
+            case 2: 
+                merge_sort(arr, 0, n - 1); 
+                printf("\nSorted using Merge Sort:\n"); 
+                break;
+            case 3: 
+                insertion_sort(arr, n); 
+                printf("\nSorted using Insertion Sort:\n"); 
+                break;
+            case 4: 
+                quick_sort(arr, 0, n - 1); 
+                printf("\nSorted using Quick Sort:\n"); 
+                break;
+            case 5: 
+                heap_sort(arr, n); 
+                printf("\nSorted using Heap Sort:\n"); 
+                break;
+            case 6: 
+                smart_sort(arr, n); // Runs your dynamic size & memory-based analyzer
+                break;
+            default: 
+                printf("Invalid sorting choice!\n"); 
+                return 1;
         }
-        print_array(arr, n);
+        
+        // Print array after sorting (Smart sort handles its own inner logging, so this safely outputs the final result)
+        if (algo_choice != 6) {
+            print_array(arr, n);
+        } else {
+            printf("Final Sorted Array:\n");
+            print_array(arr, n);
+        }
 
     } else if (main_choice == 2) {
         printf("\nEnter the number to search for: ");
