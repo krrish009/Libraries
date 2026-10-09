@@ -72,6 +72,25 @@ void smart_sort(int arr[], int n) {
         return;
     }
 
+    // 3. Large dataset (N > 50) -> Check system memory constraints
+    printf("Dataset size is large (N = %d > 50). Checking system memory requirements...\n", n);
+    int memory_available = has_enough_memory();
+
+    if (memory_available) {
+        // Sufficient memory -> Use Merge Sort for stability and strict O(n log n)
+        printf("Algorithm Chosen: Merge Sort\n");
+        printf("Rationale: Sufficient system memory available for large N = %d. Merge Sort chosen to guarantee stability and O(n log n) performance.\n", n);
+        printf("Time Complexity: O(n log n) [Worst, Average, Best]\n");
+        printf("Space Complexity: O(n)\n");
+        merge_sort(arr, 0, n - 1);
+    } else {
+        // Memory constrained -> Route to Quick Sort because it's in-place and memory-efficient
+        printf("Algorithm Chosen: Quick Sort\n");
+        printf("Rationale: Memory constraints detected for large N = %d. Falling back to Quick Sort due to its compact in-place O(log n) stack footprint.\n", n);
+        printf("Time Complexity: O(n log n) average-case, O(n^2) worst-case\n");
+        printf("Space Complexity: O(log n)\n");
+        quick_sort(arr, 0, n - 1);
+    }
     
     printf("---------------------------\n");
 }
